@@ -1,0 +1,28 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"Abacus",
+		"BracketHighlighter",
+		"CSScomb",
+		"DocBlockr",
+		"Emmet Css Snippets",
+		"EncodingHelper",
+		"Genesis",
+		"HTML5",
+		"HTMLAttributes",
+		"jQuery",
+		"LineEndings",
+		"Markdown Preview",
+		"Package Control",
+		"Phpcs",
+		"Prefixr",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"Theme - Soda",
+		"Tomorrow Color Schemes",
+		"WordCount",
+		"Wordpress"
+	]
+}

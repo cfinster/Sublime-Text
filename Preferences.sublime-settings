@@ -1,0 +1,61 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
+	"default_line_ending": "unix",
+	"detect_slow_plugins": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Ubuntu Mono",
+	"font_options":
+	[
+		"subpixel_antialias"
+	],
+	"font_size": 15.0,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"LaTeX",
+		"Java",
+		"Scala",
+		"Vintage",
+		"Rails",
+		"Perl",
+		"Textile",
+		"Lua",
+		"Matlab",
+		"Erlang",
+		"Batch File",
+		"C#",
+		"AppleScript",
+		"TCL",
+		"Ruby",
+		"Groovy",
+		"D",
+		"Lisp",
+		"C++",
+		"Objective-C",
+		"R",
+		"Clojure",
+		"RestructuredText",
+		"OCaml",
+		"Graphviz",
+		"Haskell",
+		"Composer",
+		"ActionScript",
+		"Go"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"new_window_settings":
+	{
+		"show_minimap": false
+	},
+	"rulers":
+	[
+		80,
+		120
+	],
+	"theme": "Soda Dark.sublime-theme",
+	"trim_trailing_white_space_on_save": true
+}

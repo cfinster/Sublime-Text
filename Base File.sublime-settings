@@ -1,0 +1,33 @@
+{
+  // The mid-line characters to align in a multi-line selection, changing
+  // this to an empty array will disable mid-line alignment
+  "alignment_chars": ["=", ":"],
+
+  // The number of spaces to add after the leading * in lines under the first line of each
+  // paragraph. This is only used together with automatic line wrapping. For example, a value
+  // of 3 might look like this:
+  //
+  // /**
+  //  * Duis sed arcu non tellus eleifend ullamcorper quis non erat. Curabitur
+  //  *   metus elit, ultrices et tristique a, blandit at justo.
+  //  * @param  {String} foo Lorem ipsum dolor sit amet.
+  //  * @param  {Number} bar Nullam fringilla feugiat pretium. Quisque
+  //  *   consectetur, risus eu pellentesque tincidunt, nulla ipsum imperdiet
+  //  *   massa, sit amet adipiscing dolor.
+  //  * @return {[Type]}
+  //  */
+  "jsdocs_indentation_spaces_same_para": 4,
+
+  // Whether there should be blank lines added between the description line, and between tags of different types.
+  // If true, the output might look like this:
+  //
+  // /**
+  //  * [description]
+  //  *
+  //  * @param  {String} foo
+  //  * @param  {Number} bar
+  //  *
+  //  * @return {[Type]}
+  //  */
+  "jsdocs_spacer_between_sections": true
+}
