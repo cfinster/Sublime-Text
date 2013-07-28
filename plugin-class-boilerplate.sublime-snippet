@@ -25,7 +25,7 @@ class ${7:Plugin_Name} {
 	 *
 	 * @var     string
 	 */
-	protected $version = '1.0.0';
+	protected \$version = '1.0.0';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -37,7 +37,7 @@ class ${7:Plugin_Name} {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = '${8:plugin-name}';
+	protected \$plugin_slug = '${8:plugin-name}';
 
 	/**
 	 * Instance of this class.
@@ -46,7 +46,7 @@ class ${7:Plugin_Name} {
 	 *
 	 * @var      object
 	 */
-	protected static $instance = null;
+	protected static \$instance = null;
 
 	/**
 	 * Slug of the plugin screen.
@@ -55,7 +55,7 @@ class ${7:Plugin_Name} {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_screen_hook_suffix = null;
+	protected \$plugin_screen_hook_suffix = null;
 
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
@@ -65,22 +65,22 @@ class ${7:Plugin_Name} {
 	private function __construct() {
 
 		// Load plugin text domain
-		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
+		add_action( 'init', array( \$this, 'load_plugin_textdomain' ) );
 
 		// Add the options page and menu item.
-		// add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
+		// add_action( 'admin_menu', array( \$this, 'add_plugin_admin_menu' ) );
 
 		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( \$this, 'enqueue_admin_styles' ) );
+		add_action( 'admin_enqueue_scripts', array( \$this, 'enqueue_admin_scripts' ) );
 
 		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( \$this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( \$this, 'enqueue_scripts' ) );
 
 		// Define custom functionality. Read more about actions and filters: http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
-		add_action( 'TODO', array( $this, 'action_method_name' ) );
-		add_filter( 'TODO', array( $this, 'filter_method_name' ) );
+		add_action( 'TODO', array( \$this, 'action_method_name' ) );
+		add_filter( 'TODO', array( \$this, 'filter_method_name' ) );
 
 	}
 
@@ -94,11 +94,11 @@ class ${7:Plugin_Name} {
 	public static function get_instance() {
 
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
+		if ( null == self::\$instance ) {
+			self::\$instance = new self;
 		}
 
-		return self::$instance;
+		return self::\$instance;
 	}
 
 	/**
@@ -106,10 +106,10 @@ class ${7:Plugin_Name} {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is
+	 * @param    boolean    \$network_wide    True if WPMU superadmin uses "Network Activate" action, false if WPMU is
 	 *                                       disabled or plugin is activated on an individual blog.
 	 */
-	public static function activate( $network_wide ) {
+	public static function activate( \$network_wide ) {
 		// TODO: Define activation functionality here
 	}
 
@@ -118,10 +118,10 @@ class ${7:Plugin_Name} {
 	 *
 	 * @since    1.0.0
 	 *
-	 * @param    boolean    $network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is
+	 * @param    boolean    \$network_wide    True if WPMU superadmin uses "Network Deactivate" action, false if WPMU is
 	 *                                       disabled or plugin is deactivated on an individual blog.
 	 */
-	public static function deactivate( $network_wide ) {
+	public static function deactivate( \$network_wide ) {
 		// TODO: Define deactivation functionality here
 	}
 
@@ -132,10 +132,10 @@ class ${7:Plugin_Name} {
 	 */
 	public function load_plugin_textdomain() {
 
-		$domain = $this->plugin_slug;
-		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		\$domain = \$this->plugin_slug;
+		\$locale = apply_filters( 'plugin_locale', get_locale(), \$domain );
 
-		load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
+		load_textdomain( $domain, WP_LANG_DIR . '/' . \$domain . '/' . \$domain . '-' . \$locale . '.mo' );
 		load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	}
 
@@ -152,9 +152,9 @@ class ${7:Plugin_Name} {
 			return;
 		}
 
-		$screen = get_current_screen();
-		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
-			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), array(), $this->version );
+		\$screen = get_current_screen();
+		if ( \$screen->id == \$this->plugin_screen_hook_suffix ) {
+			wp_enqueue_style( \$this->plugin_slug .'-admin-styles', plugins_url( 'css/admin.css', __FILE__ ), array(), \$this->version );
 		}
 
 	}
@@ -168,13 +168,13 @@ class ${7:Plugin_Name} {
 	 */
 	public function enqueue_admin_scripts() {
 
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
+		if ( ! isset( \$this->plugin_screen_hook_suffix ) ) {
 			return;
 		}
 
-		$screen = get_current_screen();
-		if ( $screen->id == $this->plugin_screen_hook_suffix ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
+		\$screen = get_current_screen();
+		if ( \$screen->id == \$this->plugin_screen_hook_suffix ) {
+			wp_enqueue_script( \$this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
 		}
 
 	}
@@ -185,7 +185,7 @@ class ${7:Plugin_Name} {
 	 * @since    1.0.0
 	 */
 	public function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
+		wp_enqueue_style( \$this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array(), \$this->version );
 	}
 
 	/**
@@ -194,7 +194,7 @@ class ${7:Plugin_Name} {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
+		wp_enqueue_script( \$this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), \$this->version );
 	}
 
 	/**
@@ -212,10 +212,10 @@ class ${7:Plugin_Name} {
 		 * Change 'plugin-name' to the name of your plugin
 		 */
 		$this->plugin_screen_hook_suffix = add_plugins_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'Page Title', '${8:plugin-name}' ),
+			__( 'Menu Text', '${8:plugin-name}' ),
 			'read',
-			$this->plugin_slug,
+			\$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )
 		);
 
