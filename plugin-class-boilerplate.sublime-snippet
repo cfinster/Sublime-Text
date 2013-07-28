@@ -135,8 +135,8 @@ class ${7:Plugin_Name} {
 		\$domain = \$this->plugin_slug;
 		\$locale = apply_filters( 'plugin_locale', get_locale(), \$domain );
 
-		load_textdomain( $domain, WP_LANG_DIR . '/' . \$domain . '/' . \$domain . '-' . \$locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+		load_textdomain( \$domain, WP_LANG_DIR . '/' . \$domain . '/' . \$domain . '-' . \$locale . '.mo' );
+		load_plugin_textdomain( \$domain, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	}
 
 	/**
@@ -148,7 +148,7 @@ class ${7:Plugin_Name} {
 	 */
 	public function enqueue_admin_styles() {
 
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
+		if ( ! isset( \$this->plugin_screen_hook_suffix ) ) {
 			return;
 		}
 
@@ -174,7 +174,7 @@ class ${7:Plugin_Name} {
 
 		\$screen = get_current_screen();
 		if ( \$screen->id == \$this->plugin_screen_hook_suffix ) {
-			wp_enqueue_script( \$this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), $this->version );
+			wp_enqueue_script( \$this->plugin_slug . '-admin-script', plugins_url( 'js/admin.js', __FILE__ ), array( 'jquery' ), \$this->version );
 		}
 
 	}
@@ -211,12 +211,12 @@ class ${7:Plugin_Name} {
 		 * Change 'Menu Text' to the text for menu item for the plugin settings page
 		 * Change 'plugin-name' to the name of your plugin
 		 */
-		$this->plugin_screen_hook_suffix = add_plugins_page(
+		\$this->plugin_screen_hook_suffix = add_plugins_page(
 			__( 'Page Title', '${8:plugin-name}' ),
 			__( 'Menu Text', '${8:plugin-name}' ),
 			'read',
 			\$this->plugin_slug,
-			array( $this, 'display_plugin_admin_page' )
+			array( \$this, 'display_plugin_admin_page' )
 		);
 
 	}
